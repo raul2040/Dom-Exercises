@@ -12,7 +12,8 @@ function main() {
     var container = document.getElementById('mountains');
     var keys = Object.keys(MOUNTAINS[0]);
     createTableWithHeaders(container, keys);
-    createTableRowsWithContent(keys)
+    createTableRowsWithContent(keys);
+    alignItems("right",1);
 
 }
 function createTableWithHeaders(container, keys) {
@@ -40,5 +41,12 @@ function obtainValuesOfObject(Object,keys,container) {
         var tableTd = document.createElement('td');
         tableTd.innerText = Object[keys[i]];
         container.appendChild(tableTd);
+    }
+}
+
+function alignItems(direction,column) {
+    var tableRows = document.getElementsByTagName('tr');
+    for(var i=0; i<tableRows.length;i++) {
+        tableRows[i].children[column].style.textAlign = direction;
     }
 }
